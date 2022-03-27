@@ -11,3 +11,10 @@ db.json
 assets/
 
 config.yaml
+
+# video gen assets
+*.mp4 
+*.mp3 
+.png 
+
+config.yaml 

@@ -132,8 +132,8 @@ async def render(context, numberOfMessages: int, music: str = 'pwr'):
     global renderQueue
     feedbackMessage = await context.send(content="`Fetching messages...`")
     try:
-        if not (numberOfMessages in range(1, 151)):
-            raise Exception("Number of messages must be between 1 and 150")
+        if not (numberOfMessages in range(1, 1000)):
+            raise Exception("Number of messages must be between 1 and 1000")
 
         # baseMessage is the message from which the specified number of messages will be fetch, not including itself
         baseMessage = context.message.reference.resolved if context.message.reference else context.message
@@ -270,7 +270,7 @@ async def renderQueueLoop():
                 pass
         finally:
             if render.getState() == State.DONE:
-                clean(render.getMessages(), render.getOutputFilename())
+                #clean(render.getMessages(), render.getOutputFilename())
                 addToDeletionQueue(render.getFeedbackMessage())
 
     # Remove from queue if state is DONE
